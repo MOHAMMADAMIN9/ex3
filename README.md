@@ -2,7 +2,6 @@
 
 **Author(s):** Mohammad Amin 
 **Date:** 25/08/2025  
-**Repo:** https://github.com/MOHAMMADAMIN9/ex3) 
 
 ## Overview
 A small site with **register/login**, a **protected main page**, and a **per-user cart** that **persists across logouts**.
