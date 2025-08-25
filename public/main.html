@@ -1,0 +1,58 @@
+<!--
+  Project: EX3 - Personalized Cart Site
+  File: main.html
+  Authors: Mohammad Amin 208650283
+  Date: 25/08/2025
+  Description: Protected main page (cart). Loads/saves via fetch to /api/cart.
+  Note: Portions of this file were developed with guidance from ChatGPT (tutor). I reviewed and adapted the code.
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>My Cart • EX3</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="/styles.css" rel="stylesheet">
+</head>
+<body>
+  <header class="sitebar">
+    <nav class="nav">
+      <div class="spacer"></div>
+      <button class="danger" id="btn-logout">Logout</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>My Cart</h1>
+
+    <div class="toolbar">
+      <span id="total">Total items: 0</span>
+      <div class="spacer"></div>
+      <button class="ghost alt" id="btn-clear">Clear cart</button>
+    </div>
+
+    <p id="welcome">Checking session…</p>
+
+    <div id="cart-area" style="display:none;">
+      <form id="add-item-form">
+        <label>
+          Item name
+          <input name="name" required minlength="1" maxlength="40">
+        </label>
+        <label>
+          Quantity
+          <input name="qty" type="number" value="1" min="1" max="99" required>
+        </label>
+        <button type="submit">Add</button>
+      </form>
+
+      <ul id="cart-list"></ul>
+      <small>Tip: use + / − to adjust quantity or Delete to remove.</small>
+    </div>
+  </main>
+
+  <script src="/js/main.js"></script>
+  <script src="/js/nav.js"></script>
+</body>
+</html>

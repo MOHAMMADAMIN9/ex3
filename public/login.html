@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Login • EX3</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="/styles.css" rel="stylesheet">
+</head>
+<body>
+  <header class="sitebar">
+    <nav class="nav">
+      <div class="spacer"></div>
+      <button class="danger" id="btn-logout">Logout</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Login</h1>
+    <form id="login-form" method="post" action="/api/login" novalidate>
+      <label>
+        Username
+        <input name="username" required minlength="3" maxlength="20" pattern="[A-Za-z0-9_]+" autocomplete="username">
+      </label>
+      <label>
+        Password
+        <input type="password" name="password" required minlength="6" autocomplete="current-password">
+      </label>
+      <button type="submit">Log in</button>
+    </form>
+    <p>No account? <a href="/register.html">Register</a></p>
+  </main>
+
+  <script src="/js/auth.js"></script>
+  <script src="/js/nav.js"></script>
+</body>
+</html>

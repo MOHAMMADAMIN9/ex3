@@ -1,0 +1,14 @@
+[
+  {
+    "name": "pizza",
+    "qty": 13
+  },
+  {
+    "name": "cake",
+    "qty": 12
+  },
+  {
+    "name": "shirt",
+    "qty": 1
+  }
+]

@@ -1,0 +1,47 @@
+{
+  "test": {
+    "password": "Test123"
+  },
+  "testaccount": {
+    "password": "Test123"
+  },
+  "test123": {
+    "password": "Test123"
+  },
+  "test1234": {
+    "password": "Test123x"
+  },
+  "test12345": {
+    "password": "fwfeADFASD13"
+  },
+  "NewTest": {
+    "password": "Test1234"
+  },
+  "Test1235": {
+    "password": "Test1234"
+  },
+  "Mohammad": {
+    "password": "Mo12345"
+  },
+  "MO12345": {
+    "password": "Mo12345"
+  },
+  "Mohammed123": {
+    "password": "Yazanwatad"
+  },
+  "yazanwattad": {
+    "password": "yazanwattad123"
+  },
+  "mhmd123": {
+    "password": "mhmdh123"
+  },
+  "mhmd12345": {
+    "password": "mhmd123"
+  },
+  "yazanW": {
+    "password": "yazanW123"
+  },
+  "MoTest": {
+    "password": "Mo12345"
+  }
+}

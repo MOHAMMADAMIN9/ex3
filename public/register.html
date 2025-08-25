@@ -1,0 +1,46 @@
+<!--
+  Project: EX3 - Personalized Cart Site
+  File: register.html
+  Authors: Mohammad Amin 208650283 
+  Date: 25/08/2025
+  Description: Registration page UI (no inline CSS/JS). Uses /js/auth.js and shared header.
+  Note: Portions of this file were developed with guidance from ChatGPT (tutor). I reviewed and adapted the code.
+-->
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Register • EX3</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="/styles.css" rel="stylesheet">
+</head>
+<body>
+  <header class="sitebar">
+    <nav class="nav">
+      <div class="spacer"></div>
+      <button class="danger" id="btn-logout">Logout</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Create an account</h1>
+    <form id="register-form" method="post" action="/api/register" novalidate>
+      <label>
+        Username
+        <input name="username" required minlength="3" maxlength="20" pattern="[A-Za-z0-9_]+" autocomplete="username">
+      </label>
+      <label>
+        Password
+        <input type="password" name="password" required minlength="6" autocomplete="new-password">
+      </label>
+      <button type="submit">Register</button>
+    </form>
+    <p>Already have an account? <a href="/login.html">Log in</a></p>
+  </main>
+
+  <script src="/js/auth.js"></script>
+  <script src="/js/nav.js"></script>
+</body>
+</html>

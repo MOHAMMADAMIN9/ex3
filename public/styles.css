@@ -1,0 +1,250 @@
+/* 
+  Project: EX3 - Personalized Cart Site
+  File: styles.css
+  Authors: Mohammad Amin 208650283
+    Date: 25/08/2025
+  Description: Responsive, desktop/mobile styling. No inline CSS in HTML.
+  Note: Portions of this file were designed with guidance from ChatGPT (tutor). I reviewed and adapted the styles.
+*/
+
+/* ====== Theme & Reset ====== */
+:root{
+  --bg:        #0f172a;        /* slate-900 */
+  --bg-soft:   #111827;        /* gray-900 */
+  --card:      #0b1220a6;      /* translucent card */
+  --text:      #e5e7eb;        /* gray-200 */
+  --text-dim:  #a8b3cf;        /* slate-300 */
+  --primary:   #60a5fa;        /* blue-400 */
+  --primary-2: #3b82f6;        /* blue-500 */
+  --danger:    #ef4444;        /* red-500 */
+  --ok:        #22c55e;        /* green-500 */
+  --ring:      #93c5fd55;      /* blue-300/33% */
+  --shadow:    0 10px 30px rgba(0,0,0,.35), 0 2px 8px rgba(0,0,0,.35);
+  --radius:    16px;
+  --radius-sm: 10px;
+  --gap:       14px;
+  --trans:     150ms cubic-bezier(.2,.8,.2,1);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+  background:
+    radial-gradient(1200px 900px at 20% -10%, rgba(99,102,241,.25), transparent 60%),
+    radial-gradient(800px 600px at 90% 0%, rgba(56,189,248,.20), transparent 70%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
+  color:var(--text);
+  line-height:1.5;
+}
+
+/* ====== Layout ====== */
+.container{
+  width:min(880px, 92vw);
+  margin: min(8vh,80px) auto;
+  padding: clamp(20px, 3vw, 32px);
+  background: var(--card);
+  backdrop-filter: blur(10px) saturate(120%);
+  border: 1px solid rgba(148,163,184,.15);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform var(--trans), box-shadow var(--trans);
+}
+.container:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(0,0,0,.45), 0 2px 10px rgba(0,0,0,.25);
+}
+
+h1,h2{
+  margin:0 0 10px 0;
+  letter-spacing:.3px;
+}
+h1{
+  font-size: clamp(24px, 3.2vw, 36px);
+  font-weight: 800;
+  background: linear-gradient(90deg, #93c5fd, #a78bfa, #34d399);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+p, label, li, input, button, a, small{font-size: clamp(14px, 1.4vw, 16px);}
+
+/* ====== Form Elements ====== */
+label{display:block; margin: 10px 0; color: var(--text-dim);}
+input{
+  width:100%;
+  padding:12px 14px;
+  background: rgba(17,24,39,.65);
+  color: var(--text);
+  border:1px solid rgba(148,163,184,.25);
+  border-radius: var(--radius-sm);
+  outline:none;
+  transition:border-color var(--trans), box-shadow var(--trans), transform var(--trans);
+}
+input::placeholder{color:#64748b}
+input:focus{
+  border-color: var(--primary);
+  box-shadow: 0 0 0 6px var(--ring);
+  transform: translateY(-1px);
+}
+
+/* Inline form layout on wide screens */
+#add-item-form{
+  display:grid;
+  grid-template-columns: 1.4fr .6fr auto;
+  gap: var(--gap);
+  align-items:end;
+  margin: 18px 0 8px;
+}
+@media (max-width: 560px){
+  #add-item-form{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ====== Buttons ====== */
+button{
+  appearance:none;
+  border:0;
+  border-radius: var(--radius-sm);
+  padding:10px 14px;
+  background: linear-gradient(180deg, var(--primary), var(--primary-2));
+  color:white;
+  font-weight: 600;
+  cursor:pointer;
+  transition: transform var(--trans), filter var(--trans), box-shadow var(--trans);
+  box-shadow: 0 6px 18px rgba(59,130,246,.25);
+}
+button:hover{ transform: translateY(-1px); filter: brightness(1.05); }
+button:active{ transform: translateY(0); filter: brightness(.98); }
+button[disabled]{opacity:.6; pointer-events:none}
+
+button.alt{
+  background:linear-gradient(180deg,#64748b,#475569);
+  box-shadow:0 6px 18px rgba(100,116,139,.25);
+}
+button.danger{
+  background: linear-gradient(180deg, #f87171, #ef4444);
+  box-shadow: 0 6px 18px rgba(239,68,68,.25);
+}
+button.ghost{
+  background: transparent;
+  border:1px solid rgba(148,163,184,.25);
+  color: var(--text-dim);
+  box-shadow:none;
+}
+
+/* ====== Links ====== */
+a{ color: var(--primary); text-decoration: none; }
+a:hover{ text-decoration: underline; }
+
+/* ====== Lists / Cart ====== */
+#cart-list{ list-style:none; padding:0; margin: 12px 0 0; display:grid; gap:10px; }
+#cart-list li{
+  background: rgba(15,23,42,.65);
+  border:1px solid rgba(148,163,184,.18);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 10px;
+  transition: background var(--trans), transform var(--trans), border-color var(--trans);
+}
+#cart-list li:hover{
+  background: rgba(15,23,42,.85);
+  transform: translateY(-1px);
+  border-color: rgba(148,163,184,.35);
+}
+
+/* Item label + pill */
+.item-left{
+  display:flex; align-items:center; gap:10px; min-width:0;
+}
+.item-name{
+  font-weight:700; color:#e2e8f0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.item-qty{
+  background: rgba(59,130,246,.15);
+  color:#c7d2fe;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight:700;
+}
+
+/* Quantity controls */
+.controls{
+  display:flex; align-items:center; gap:8px;
+}
+.icon-btn{
+  width:36px; height:36px;
+  display:grid; place-items:center;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #0ea5e9, #0284c7);
+  color:white; font-weight:900;
+  box-shadow: 0 6px 18px rgba(14,165,233,.25);
+}
+.icon-btn:hover{ transform: translateY(-1px); filter: brightness(1.05);}
+.icon-btn:active{ transform: translateY(0); filter: brightness(.98);}
+
+/* Delete button narrower */
+button.delete{ padding:8px 12px; }
+
+/* ====== Helper text ====== */
+small{ color: var(--text-dim); display:block; margin-top:6px; }
+
+/* ====== Success/Error banners (optional use) ====== */
+.banner{
+  margin:12px 0; padding:10px 12px; border-radius: var(--radius-sm);
+  border:1px solid rgba(148,163,184,.2);
+}
+.banner.ok{ background: rgba(34,197,94,.12); color:#bbf7d0; border-color: rgba(34,197,94,.35); }
+.banner.err{ background: rgba(239,68,68,.12); color:#fecaca; border-color: rgba(239,68,68,.35); }
+
+/* ====== Top Site Bar ====== */
+.sitebar{
+  position: sticky; top: 0; z-index: 50;
+  backdrop-filter: blur(10px) saturate(140%);
+  background: rgba(2, 6, 23, .6);
+  border-bottom: 1px solid rgba(148,163,184,.18);
+}
+.nav{
+  width:min(880px, 92vw);
+  margin:0 auto;
+  padding:10px 0;
+  display:flex; align-items:center; gap:8px;
+}
+.brand{ font-weight: 800; letter-spacing: .4px; color: var(--text); }
+.spacer{ flex:1; }
+
+/* Toolbar row on pages */
+.toolbar{
+  display:flex; align-items:center; gap:10px;
+  margin: 6px 0 12px;
+}
+
+/* ====== Dark/Light auto (prefers-color-scheme) ====== */
+@media (prefers-color-scheme: light){
+  :root{
+    --bg: #f8fafc;
+    --bg-soft:#f1f5f9;
+    --card:#ffffffcc;
+    --text:#0f172a;
+    --text-dim:#475569;
+    --ring:#93c5fd88;
+  }
+  body{ color: var(--text); }
+  .container{ border-color: rgba(15,23,42,.08); }
+  input{ background:#ffffffeb; border-color: rgba(15,23,42,.15); color:#0f172a; }
+  #cart-list li{ background:#ffffff; border-color: rgba(15,23,42,.08); }
+  .item-qty{ color:#1e3a8a; }
+
+  .sitebar{
+    background: rgba(255,255,255,.7);
+    border-bottom: 1px solid rgba(15,23,42,.08);
+  }
+  .brand{ color: #0f172a; }
+}
+/* NOTE: Portions of this stylesheet were designed with guidance from ChatGPT.
+primarily the hovering and the media adaptation.
+   I reviewed and adapted the code. */
