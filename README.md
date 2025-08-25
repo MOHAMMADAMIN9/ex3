@@ -19,18 +19,6 @@ All changes save **instantly** to the server via `fetch`. Frontend is **plain HT
 - Node.js (LTS), Express, cookie-parser  
 - Vanilla HTML/CSS/JS (no frameworks)
 
-## Structure
-ex3/
-├─ index.js # Express server
-├─ package.json
-├─ data/
-│ ├─ users.json
-│ ├─ sessions.json
-│ └─ carts/
-│ └─ .gitkeep
-└─ public/
-├─ login.html register.html main.html styles.css
-└─ js/ auth.js main.js nav.js
 
 
 ## Setup & Run (Windows)
